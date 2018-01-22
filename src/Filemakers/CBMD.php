@@ -187,7 +187,7 @@ class CBMD implements \Asdozzz\Filemakers\Interfaces\iFilemakers
         $input['create_sql'] = 'CREATE TABLE '.$data['config']->table.' ('.join(',', $columns).') COLLATE=\'utf8_general_ci\' ENGINE=InnoDB' ;
 
         $content = view('vika_filemakers::migrations', $input);
-        $filename = date('Y_m_d_His') . '_create_' . $data['config']->table . '_table.php';
+        $filename = date('Y_m_d_His') . '_create_' . $input['essence'] . '_table.php';
         $filepath = $path = $dirs['migrations'] . '/' . $filename;
 
         if (file_exists($filepath))
