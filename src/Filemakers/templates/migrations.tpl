@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Create{{$essence|ucfirst}}Table extends Migration
+class {{$className}} extends Migration
 {
     public function up()
     {
