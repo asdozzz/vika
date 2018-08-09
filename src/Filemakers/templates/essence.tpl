@@ -6,6 +6,14 @@ use DB;
 
 class {{$essence|ucfirst}} extends \Asdozzz\Essence\Essences\Essence implements \Asdozzz\Essence\Interfaces\iEssence
 {
+    public $moduleName = '{{$module|ucfirst}}';
+
+    public $businessName   = 'Asdozzz\\{{$module|ucfirst}}\\Business\\{{$essence|ucfirst}}';
+
+    public $modelName      = 'Asdozzz\\{{$module|ucfirst}}\\Model\\{{$essence|ucfirst}}';
+
+    public $datasourceName = 'Asdozzz\\{{$module|ucfirst}}\\Datasource\\{{$essence|ucfirst}}';
+
     public $primary_key   = 'id';
     public $table         = '{{$essence|lower}}';
     public $label         = '{{$essence|ucfirst}}';
@@ -39,18 +47,12 @@ class {{$essence|ucfirst}} extends \Asdozzz\Essence\Essences\Essence implements 
             'create' =>
             [
                 'label'   => 'Add',
-                'columns' => [
-                    /* Columns */
-                ],
+                'columns' => $columns
             ],
             'edit' =>
             [
                 'label'   => 'Edit',
-                'columns' =>
-                [
-                    $columns['id'],
-                    /* Columns */
-                ],
+                'columns' => $columns
             ],
         ];
     }
@@ -65,10 +67,7 @@ class {{$essence|ucfirst}} extends \Asdozzz\Essence\Essences\Essence implements 
                 'label'       => $this->label,
                 'table' => $this->table,
                 'primary_key' => $this->primary_key,
-                'columns'     => [
-                    $columns['id'],
-                    /* Columns */
-                ],
+                'columns'     => $columns,
                 'order' =>
                 [
                     [ 'column' => 'id', 'direction' => 'desc' ]

@@ -76,7 +76,7 @@ class CBMD implements \Asdozzz\Filemakers\Interfaces\iFilemakers
 
 		$data['config'] = \Asdozzz\Essence\Essence::factory($data['essence']);
 
-		$module_path = $this->generateModulePath(ucfirst($data['module']));
+		$module_path = $this->generateModulePath($data['config']->moduleName);
 
 		$dirs = $this->generateDirs($module_path);
 
